@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regform</title>
+    <script type="text/javascript">
+        function form()
+        {
+            var name=document.myform.name.value;
+            var number=document.myform.number.value;
+            var email=document.myform.email.value;
+            var atpos=email.indexOf("@");
+            var dotpos=email.lastIndexOf(".");
+            if(name=="")
+            {
+                alert("Please enter name.");
+                return false;
+            }
+            else if(number=="" || number>=10)
+            {
+                alert("Please enter valid contact number.");
+                return false;
+            }
+            else if(atpos<1 || dotpos<=(atpos+2) || (dotpos+2)>=email.length)
+            {
+                alert("Enter valid email address.");
+                return false;
+            }
+            else if(gender==" ")
+            {
+                alert("Please select gender.");
+                return false;
+            }
+            function register()
+            {alert("Your registration is successful.");}
+        }
+    </script>
+</head>
+<body>
+    <h1 style="text-align: center;">REGISTRATION FORM</h1>
+    <form name="myform" onsubmit="return form()">
+        name:<input type="text" name="name"><br>
+        <br>Contact Number:<input type="text" name="number"><br>
+        <br>Email:<input type="text" name="email"><br>
+        <!--<br>Gender:
+            <input type="radio" id="m" value="male" name="f">
+            <label for="m">male</label>
+            <input type="radio" id="f" value="female" name="f">
+            <label for="f">female</label><br>-->
+        <br><input type="submit" value="register" onclick="register()"/><br>
+    </form>
+</body>
+</html>
